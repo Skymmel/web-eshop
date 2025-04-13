@@ -1,0 +1,184 @@
+// styles/globals.scss
+@import "./vars";
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+}
+body{
+  color: $text-color;
+  background-color: $background-color;
+  font-size: $font;
+}
+section {
+  padding: calc($space*2) 0;
+  @media (min-width: 1000px) {
+    padding: calc($space*2.5) 0;
+  }
+}
+a {
+  color: $text-color;
+  text-decoration-color: rgba($text-color, 0.2);
+}
+.btn {
+  box-shadow: rgba($special-color, 0.5) 0 0 $space;
+  display: inline-flex;
+  align-items: center;
+  padding: 2px $space 0 $space;
+  background-color: $special-color;
+  font-weight: 600;
+  text-decoration: none;
+  color: $text-color;
+  text-shadow: rgba($background-color, 0.5) 0 0 12px;
+  height: calc($space*1.75);
+  border-radius: $radius;
+}
+.content {
+  padding: 0 $space;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+h1, h2, h3, h4 {
+  font-weight: 700;
+  margin-top: calc($space/3);
+  &:first-child {
+    margin: 0;
+  }
+}
+h1 {
+  font-size: calc($font*2.5);
+}
+h2 {
+  font-size: calc($font*2);
+}
+h3 {
+  font-size: calc($font*1.5);
+}
+h4 {
+  text-transform: uppercase;
+  font-size: $font;
+}
+p {
+  line-height: calc($space * 1.2);
+  margin: calc($space/3) 0;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &:first-of-type {
+    margin-top: calc(2 * $space/3);
+  }
+}
+ul {
+  padding-left: calc($space/1.4);
+}
+
+// HEADER
+.pageHeader {
+  a {
+    color: $text-color;
+    text-decoration: none;
+  }
+}
+@media (min-width: 1000px) {
+  .pageHeader {
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: $transparent-color;
+    backdrop-filter: blur(4px);
+    height: calc($space * 4);
+
+    button {
+      display: none;
+    }
+
+    .content {
+      max-width: calc(1200px + $space * 2);
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    a {
+      display: flex;
+      height: calc($space * 4);
+      align-items: center;
+      padding: 0 $space;
+    }
+  }
+
+  #nav ul {
+    display: inline-flex;
+    list-style: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .pageHeader .content {
+    padding: 0;
+  }
+
+  .mainHeader {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: calc($space * 4);
+    background-color: $transparent-color;
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: space-between;
+
+    a,
+    button {
+      background: none;
+      padding: 0 $space;
+      display: flex;
+      align-items: center;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  #nav {
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    overflow-x: hidden;
+    transition: height 1s;
+    height: 0;
+    width: 100%;
+    background-color: $transparent-color;
+    position: fixed;
+    top: calc($space * 4);
+
+    ul {
+      padding: 0;
+      overflow-x: auto;
+    }
+
+    a {
+      font-weight: 500;
+      display: flex;
+      height: calc($space * 3);
+      align-items: center;
+    }
+
+    li {
+      border-bottom: solid rgba($text-color, 0.2) 1px;
+      margin: 0 $space;
+      list-style: none;
+
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+
+  .open {
+    height: calc(100% - $space * 4) !important;
+  }
+}

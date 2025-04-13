@@ -1,0 +1,29 @@
+@import "./vars";
+
+.mainImage {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgb($background-color, 0.3) 25%, $background-color 100%), url("../../public/bg.jpg") center;
+  background-size: cover;
+}
+.mainPage {
+  padding: calc($space * 6) 0;
+  height: calc(100vh - $space * 12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  h1, p {
+    text-shadow: black 0 0 $space;
+  }
+
+  h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+  p {
+    padding-bottom: $space;
+  }
+}
