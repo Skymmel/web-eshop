@@ -19,7 +19,7 @@ export default function Header() {
             <div className="content">
                 <div className="mainHeader">
                     <Link href="/">
-                        <Image src="/logo.svg" alt="Machovci" width={36} height={36}/>
+                        <Image src="/logo.svg" alt="Retro" width={36} height={36}/>
                     </Link>
                     <button onClick={toggleNav}>
                         <Image src="/nav.svg" alt="Menu" width={20} height={20} />
@@ -31,10 +31,13 @@ export default function Header() {
                             <Link href="/" onClick={closeNav}>Úvod</Link>
                         </li>
                         <li>
-                            <Link href="/#portfolio" onClick={closeNav}>Portfolio</Link>
+                            <Link href="/nabidka/" onClick={closeNav}>Nabídka</Link>
                         </li>
                         <li>
-                            <Link href="/kontakt" onClick={closeNav}>Kontakt</Link>
+                            <Link href="/o-nas/" onClick={closeNav}>O nás</Link>
+                        </li>
+                        <li>
+                            <Link href="/kontakt/" onClick={closeNav}>Kontakt</Link>
                         </li>
                     </ul>
                 </nav>

@@ -8,7 +8,7 @@ export default function Home() {
                 <div className={styles.mainPage}>
                     <h1>Retro příslušenství</h1>
                     <p>Kupte si retro přislušenství a vraťte se zpět do minulosti</p>
-                    <a href={""} className={"btn"}>Prozkoumat nabídku</a>
+                    <a href={"/nabidka/"} className={"btn"}>Prozkoumat nabídku</a>
                 </div>
             </div>
         </div>

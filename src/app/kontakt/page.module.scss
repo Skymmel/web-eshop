@@ -1,0 +1,32 @@
+@import "./../vars";
+
+.main {
+  padding: calc($space * 6) 0 0 0;
+  h1 {
+    font-size: 5rem;
+    @media (max-width: 470px) {
+      font-size: 3rem;
+
+    }
+    text-transform: uppercase;
+  }
+  h2 {
+    padding-top: calc($space * 2);
+
+  }
+}
+.contacts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @media (max-width: 470px) {
+    grid-template-columns: 1fr;
+  }
+  gap: calc($space * 2) $space;
+  padding: calc($space * 2) 0;
+  h3 {
+    padding-bottom: 6px;
+  }
+  address {
+    font-style: normal;
+  }
+}
