@@ -39,6 +39,9 @@ export default function Header() {
                         <li>
                             <Link href="/kontakt/" onClick={closeNav}>Kontakt</Link>
                         </li>
+                        <li>
+                            <Link href="/kosik/" onClick={closeNav}>Košík</Link>
+                        </li>
                     </ul>
                 </nav>
             </div>

@@ -12,7 +12,7 @@ export const products: Products[] = [
         price: 3000,
     },
     {
-        name: "Super Nintendo Entertainment System",
+        name: "Super NES",
         description: "It is an 8-bit home video game console.",
         imgUrl: "https://media.wired.com/photos/5926a19ecfe0d93c47430e1a/master/pass/NES_SystemHP-1.jpg",
         price: 3000,
