@@ -29,9 +29,31 @@ export default function Home() {
                         </address>
                     </div>
                 </div>
-                <img src={"https://media.istockphoto.com/id/503180457/photo/hand-inserting-old-floppy-disk-drive-into-vintage-eigthies-computer.jpg?s=612x612&w=0&k=20&c=Xno1xZ86OPZwag0AsYOUgk8M_aWAdrOAfM1WrfqX6qo="} width={"100%"}  alt={""}/>
+                <img
+                    src={"https://media.istockphoto.com/id/503180457/photo/hand-inserting-old-floppy-disk-drive-into-vintage-eigthies-computer.jpg?s=612x612&w=0&k=20&c=Xno1xZ86OPZwag0AsYOUgk8M_aWAdrOAfM1WrfqX6qo="}
+                    width={"100%"} alt={""}/>
+
+                <form action="/odeslat-formular" method="POST" className={style.formular}>
+                    <label htmlFor="name">Jméno
+                        <input type="text" id="name" name="name" required/>
+                    </label>
+
+                    <label htmlFor="email">E-mail
+                        <input type="email" id="email" name="email" required/>
+                    </label>
+
+                    <label htmlFor="subject">Předmět
+                        <input type="text" id="subject" name="subject"/>
+                    </label>
+
+                    <label htmlFor="message">Zpráva
+                        <textarea id="message" name="message" required></textarea>
+                    </label>
+
+                    <button type="submit">Odeslat</button>
+                </form>
             </div>
         </div>
     </main>
-  );
+);
 }

@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import SearchBar from "@/module/searchbar/SearchBar";
+import SearchBar from "@/components/searchbar/SearchBar";
 import { products as allProducts } from "@/lib/products";
-import ProductComponent from "@/module/product/Product";
+import ProductComponent from "@/components/product/Product";
 import style from "./page.module.scss";
 
 export default function Home() {

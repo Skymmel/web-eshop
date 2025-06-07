@@ -8,13 +8,13 @@ export const products: Products[] = [
     {
         name: "Nintendo Entertainment System",
         description: "It is an 8-bit home video game console.",
-        imgUrl: "https://media.wired.com/photos/5926a19ecfe0d93c47430e1a/master/pass/NES_SystemHP-1.jpg",
+        imgUrl: "https://i.pinimg.com/736x/76/7d/8e/767d8e41db431d07492c940225fd29b2.jpg",
         price: 3000,
     },
     {
         name: "Super NES",
         description: "It is an 8-bit home video game console.",
-        imgUrl: "https://media.wired.com/photos/5926a19ecfe0d93c47430e1a/master/pass/NES_SystemHP-1.jpg",
+        imgUrl: "https://i.pinimg.com/736x/67/2f/76/672f76e3e874d2a2e5fc861ba9397e5d.jpg",
         price: 3000,
     },
     {

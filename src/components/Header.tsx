@@ -2,9 +2,19 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { getLoggedInUser, logoutUser } from "@/helpers/userStorage";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
     const [navOpen, setNavOpen] = useState(false);
+
+    const router = useRouter();
+    const user = getLoggedInUser();
+
+    const handleLogout = () => {
+        logoutUser();
+        router.push("/");
+    };
 
     const toggleNav = () => {
         setNavOpen(!navOpen);
@@ -39,6 +49,28 @@ export default function Header() {
                         <li>
                             <Link href="/kontakt/" onClick={closeNav}>Kontakt</Link>
                         </li>
+                        {user ? (
+                            <>
+                                <li>
+                                    <Link href="/dashboard">Můj účet</Link>
+                                </li>
+                                <li>
+                                    <a onClick={handleLogout} className="logout-button">
+                                        Odhlásit se
+                                    </a>
+                                </li>
+                            </>
+                        ) : (
+                            <>
+                                <li>
+                                    <Link href="/prihlaseni">Přihlášení</Link>
+
+                                </li>
+                                <li>
+                                    <Link href="/registrace">Registrace</Link>
+                                </li>
+                            </>
+                        )}
                         <li>
                             <Link href="/kosik/" onClick={closeNav}>Košík</Link>
                         </li>

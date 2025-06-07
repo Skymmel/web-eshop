@@ -14,18 +14,26 @@ export default function Product({ name, description, price, imgUrl }: Products) 
 
     const handleAddToCart = () => {
         const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
-        const newItem = { name, description, price, imgUrl, quantity: 1 };
 
-        const existingItemIndex = existingCart.findIndex((item: any) => item.name === name);
+        const existingItemIndex = existingCart.findIndex(
+            (item: any) => item.name === name
+        );
 
         if (existingItemIndex !== -1) {
             existingCart[existingItemIndex].quantity += 1;
         } else {
+            const newItem = {
+                name,
+                description,
+                price,
+                imgUrl,
+                quantity: 1
+            };
             existingCart.push(newItem);
         }
 
         localStorage.setItem("cart", JSON.stringify(existingCart));
-        setAdded(true); // Deaktivuj tlačítko
+        setAdded(true);
     };
 
     return (

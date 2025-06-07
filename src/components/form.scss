@@ -1,0 +1,67 @@
+$bg-dark: #0d0d0d;
+$primary-pink: #ff3cac;
+$secondary-purple: #784ba0;
+$accent-cyan: #2bd2ff;
+$text-light: #ffffff;
+$text-muted: #aaaaaa;
+
+@mixin glow($color) {
+  text-shadow: 0 0 5px $color, 0 0 10px $color, 0 0 20px lighten($color, 10%);
+}
+
+body {
+  background-color: $bg-dark;
+  color: $text-light;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.btn-retro {
+  background: linear-gradient(135deg, $primary-pink, $accent-cyan);
+  color: $text-light;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 0 10px $primary-pink;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px $accent-cyan;
+  }
+}
+
+.glow-text {
+  @include glow($primary-pink);
+}
+
+.input-retro {
+  background: darken($bg-dark, 5%);
+  border: 2px solid $accent-cyan;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  color: $text-light;
+  font-family: inherit;
+  margin-bottom: 1rem;
+  width: 100%;
+
+  &::placeholder {
+    color: $text-muted;
+  }
+}
+
+.form-retro {
+  background-color: $bg-dark;
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px $primary-pink;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    @include glow($accent-cyan);
+  }
+}
