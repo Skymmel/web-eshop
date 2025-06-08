@@ -1,0 +1,52 @@
+/* ...existing code... */
+.register-form, .checkout-form {
+  max-width: 400px;
+  margin: 2em auto;
+  padding: 2em;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #ddd;
+}
+.register-form div, .checkout-form div {
+  margin-bottom: 1em;
+}
+.register-form label, .checkout-form label {
+  display: block;
+  margin-bottom: 0.3em;
+  font-weight: bold;
+}
+.register-form input, .checkout-form input, .register-form select, .checkout-form select {
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+.alert-danger {
+  background: #ffe0e0;
+  color: #a00;
+  padding: 1em;
+  border-radius: 4px;
+  margin-bottom: 1em;
+}
+.btn-customer {
+  background: #007bff;
+  color: #fff !important;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-left: 1em;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-customer:hover {
+  background: #0056b3;
+}
+.header {
+  padding: 1em;
+  background: #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* ...existing code... */

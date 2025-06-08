@@ -19,19 +19,24 @@ export default function Dashboard() {
     }
 
     return (
-        <main className={style.container}>
-            <h1>Vítejte zpět, {user.name}!</h1>
-            <div className={style.userInfo}>
-                <p><strong>Email:</strong> {user.email}</p>
-                <p><strong>Adresa:</strong> {user.address}</p>
-            </div>
-            <div className={style.actions}>
-                <Link href="/nabidka" className={style.button}>
-                    Prohlédnout nabídku
-                </Link>
-                <Link href="/kosik" className={style.button}>
-                    Zobrazit košík
-                </Link>
+        <main className={style.main}>
+            <div className={"content"}>
+                <h1>Účet</h1>
+                <h2>
+                    Vítejte zpět, {user.name}!
+                </h2>
+                <div className={style.userInfo}>
+                    <p><strong>Email:</strong> {user.email}</p>
+                    <p><strong>Adresa:</strong> {user.address}</p>
+                </div>
+                <div className={style.actions}>
+                    <Link href="/nabidka" className={style.button}>
+                        Prohlédnout nabídku
+                    </Link>
+                    <Link href="/kosik" className={style.button}>
+                        Zobrazit košík
+                    </Link>
+                </div>
             </div>
         </main>
     );

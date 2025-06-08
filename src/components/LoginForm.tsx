@@ -22,19 +22,26 @@ export default function LoginForm() {
 
     return (
         <form className="form-retro" onSubmit={handleLogin}>
-            <input
-                className="input-retro"
-                required
-                placeholder="Email"
-                onChange={e => setEmail(e.target.value)}
-            />
-            <input
-                className="input-retro"
-                required
-                placeholder="Heslo"
-                type="password"
-                onChange={e => setPassword(e.target.value)}
-            />
+            <label>
+                E-mail
+                <input
+                    className="input-retro"
+                    required
+                    placeholder="E-mail"
+                    onChange={e => setEmail(e.target.value)}
+                />
+            </label>
+            <label>
+                Heslo
+                <input
+                    className="input-retro"
+                    required
+                    placeholder="Heslo"
+                    type="password"
+                    onChange={e => setPassword(e.target.value)}
+                />
+            </label>
+
             <button className="btn-retro" type="submit">Přihlásit</button>
         </form>
     );

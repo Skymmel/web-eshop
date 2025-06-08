@@ -45,7 +45,7 @@ export default function Product({ name, description, price, imgUrl }: Products) 
                     <div>{description}</div>
                 </div>
                 <button onClick={handleAddToCart} disabled={added}>
-                    {added ? "Vloženo" : "Přidat do košíku"}
+                    {added ? "Vloženo" : "Vložit do košíku"}
                 </button>
             </div>
         </div>

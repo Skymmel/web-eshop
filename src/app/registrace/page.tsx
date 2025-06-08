@@ -5,12 +5,12 @@ import Link from "next/link";
 
 export default function RegisterPage() {
     return (
-        <main className={style.container}>
-            <div className={style.registerBox}>
+        <main className={style.main}>
+            <div className={"content"}>
                 <h1>Vytvoření účtu</h1>
                 <RegisterForm />
                 <div className={style.loginLink}>
-                    <p>Již máte účet? <Link href="/prihlaseni">Přihlaste se</Link></p>
+                    <p className={"login-register-p"}>Již máte účet? <Link href="/prihlaseni">Přihlaste se</Link></p>
                 </div>
             </div>
         </main>

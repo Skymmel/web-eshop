@@ -63,11 +63,8 @@ export default function Header() {
                         ) : (
                             <>
                                 <li>
-                                    <Link href="/prihlaseni">Přihlášení</Link>
+                                    <Link href="/prihlaseni">Účet</Link>
 
-                                </li>
-                                <li>
-                                    <Link href="/registrace">Registrace</Link>
                                 </li>
                             </>
                         )}

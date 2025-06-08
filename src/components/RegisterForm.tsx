@@ -74,63 +74,75 @@ export default function RegisterForm() {
 
     return (
         <form className="form-retro" onSubmit={handleSubmit}>
-            <h2>Registrace</h2>
-
             {error && <div className="form-error">{error}</div>}
 
-            <input
-                className="input-retro"
-                required
-                placeholder="Email"
-                type="email"
-                value={form.email}
-                onChange={e => setForm({...form, email: e.target.value})}
-            />
-
-            <input
-                className="input-retro"
-                required
-                placeholder="Heslo"
-                type="password"
-                value={form.password}
-                onChange={e => setForm({...form, password: e.target.value})}
-            />
-
-            <input
-                className="input-retro"
-                required
-                placeholder="Jméno a příjmení"
-                value={form.name}
-                onChange={e => setForm({...form, name: e.target.value})}
-            />
-
-            <input
-                className="input-retro"
-                required
-                placeholder="Doručovací adresa"
-                value={form.address}
-                onChange={e => setForm({...form, address: e.target.value})}
-            />
-
-            <div className="phone-group">
-                <select
-                    className="phone-prefix"
-                    value={phonePrefix}
-                    onChange={e => setPhonePrefix(e.target.value)}
-                >
-                    <option value="+420">+420</option>
-                    <option value="+421">+421</option>
-                    {/* Přidejte další předvolby podle potřeby */}
-                </select>
+            <label>
+                E-mail
                 <input
-                    className="phone-number"
-                    type="tel"
-                    placeholder="Telefonní číslo"
-                    value={form.phone}
-                    onChange={handlePhoneChange}
+                    className="input-retro"
                     required
+                    placeholder="jan.novak@seznam.cz"
+                    type="email"
+                    value={form.email}
+                    onChange={e => setForm({...form, email: e.target.value})}
                 />
-            </div>
+            </label>
+
+            <label>
+                Heslo
+                <input
+                    className="input-retro"
+                    required
+                    placeholder="Heslo"
+                    type="password"
+                    value={form.password}
+                    onChange={e => setForm({...form, password: e.target.value})}
+                />
+            </label>
+
+            <label>
+                Jméno a přijmení
+                <input
+                    className="input-retro"
+                    required
+                    placeholder="Jan Novák"
+                    value={form.name}
+                    onChange={e => setForm({...form, name: e.target.value})}
+                />
+            </label>
+            <label>
+                Doručovací adresa
+                <input
+                    className="input-retro"
+                    required
+                    placeholder="Ulice 123/4, 567 01 Obec"
+                    value={form.address}
+                    onChange={e => setForm({...form, address: e.target.value})}
+                />
+            </label>
+
+            <label>
+                Telefonní číslo
+                <div className="phone-group">
+                    <select
+                        className="phone-prefix"
+                        value={phonePrefix}
+                        onChange={e => setPhonePrefix(e.target.value)}
+                    >
+                        <option value="+420">+420</option>
+                        <option value="+421">+421</option>
+                        {/* Přidejte další předvolby podle potřeby */}
+                    </select>
+                    <input
+                        className="phone-number"
+                        type="tel"
+                        placeholder="123456789"
+                        value={form.phone}
+                        onChange={handlePhoneChange}
+                        required
+                    />
+                </div>
+            </label>
 
             <button
                 className="btn-retro"

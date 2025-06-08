@@ -99,123 +99,97 @@ export default function CartPage() {
     const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
     return (
-        <main className={style.container}>
-            <h1>Váš košík</h1>
+        <main className={style.main}>
+            <div className={"content"}>
+                <h1>Košík</h1>
 
-            {cart.length === 0 ? (
-                <p className={style.empty}>Košík je prázdný</p>
-            ) : (
-                <div className={style.cartItems}>
-                    {cart.map((item, index) => (
-                        <div key={index} className={style.cartItem}>
-                            <img src={item.imgUrl} alt={item.name} className={style.itemImage} />
-                            <div className={style.itemDetails}>
-                                <h3>{item.name}</h3>
-                                <p>{item.price} Kč/ks</p>
-                                <div className={style.quantityControl}>
-                                    <button onClick={() => updateQuantity(index, item.quantity - 1)}>-</button>
-                                    <span>{item.quantity}</span>
-                                    <button onClick={() => updateQuantity(index, item.quantity + 1)}>+</button>
+                {cart.length === 0 ? (
+                    <p className={style.empty}>Košík je prázdný</p>
+                ) : (
+                    <div className={style.cartItems}>
+                        {cart.map((item, index) => (
+                            <div key={index} className={style.cartItem}>
+                                <img src={item.imgUrl} alt={item.name} />
+                                <div className={style.itemDetails}>
+                                    <h3>{item.name}</h3>
+                                    <p>{item.price} Kč/ks</p>
+                                    <div className={style.quantityControl}>
+                                        <button onClick={() => updateQuantity(index, item.quantity - 1)}>-</button>
+                                        <span>{item.quantity}</span>
+                                        <button onClick={() => updateQuantity(index, item.quantity + 1)}>+</button>
+                                    </div>
+                                </div>
+                                <div className={style.itemTotal}>
+                                    <p>{item.price * item.quantity} Kč</p>
+                                    <button onClick={() => removeItem(index)} className={style.removeButton}>
+                                        Odstranit
+                                    </button>
                                 </div>
                             </div>
-                            <div className={style.itemTotal}>
-                                <p>{item.price * item.quantity} Kč</p>
-                                <button onClick={() => removeItem(index)} className={style.removeButton}>
-                                    Odstranit
-                                </button>
+                        ))}
+                    </div>
+                )}
+
+                <div className={style.summary}>
+                    <p>Celkem</p>
+                    <h2>{totalPrice} Kč</h2>
+                </div>
+
+                {cart.length > 0 && (
+                    <form onSubmit={handleSubmit} className={style.orderForm}>
+                        <h2>Dodací údaje</h2>
+                        {error && <div className={style.error}>{error}</div>}
+
+
+                        <div className={style.form}>
+                            <div className={style.nameGroup}>
+                                <label>
+                                    Jméno a příjmení
+                                    <input placeholder={"Jan Novák"} type="text" name="name" value={formData.name} onChange={handleInputChange}
+                                           required/>
+                                </label>
+                                <label>
+                                    Email
+                                    <input placeholder={"jan.novak@seznam.cz"} type="email" name="email" value={formData.email} onChange={handleInputChange}
+                                           required/>
+                                </label>
+                            </div>
+                            <label>
+                                Adresa
+                                <input placeholder={"Ulice 123/4, 567 01 Obec"} type="text" name="address" value={formData.address} onChange={handleInputChange}
+                                       required/>
+                            </label>
+                            <div className={style.phoneDiv}>
+                                <label>Telefon</label>
+                                <div className={style.phoneGroup}>
+                                    <select name="phonePrefix" value={formData.phonePrefix}
+                                            onChange={handleInputChange}>
+                                        <option value="+420">+420</option>
+                                        <option value="+421">+421</option>
+                                    </select>
+                                    <input type="tel" name="phoneNumber" value={formData.phoneNumber}
+                                           onChange={handleInputChange} placeholder="123456789" maxLength={9}
+                                           className={style.phoneNumber} required/>
+                                </div>
                             </div>
                         </div>
-                    ))}
-                </div>
-            )}
 
-            <div className={style.summary}>
-                <h2>Celkem: {totalPrice} Kč</h2>
-            </div>
 
-            {cart.length > 0 && (
-                <form onSubmit={handleSubmit} className={style.orderForm}>
-                    <h2>Dodací údaje</h2>
-
-                    {/* Souhrnná chybová hláška */}
-                    {error && <div className={style.error}>{error}</div>}
-
-                    <div className={style.formGroup}>
-                        <label>Jméno a příjmení</label>
-                        <input
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
-
-                    <div className={style.formGroup}>
-                        <label>Email</label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
-
-                    <div className={style.formGroup}>
-                        <label>Adresa</label>
-                        <input
-                            type="text"
-                            name="address"
-                            value={formData.address}
-                            onChange={handleInputChange}
-                            required
-                        />
-                    </div>
-
-                    <div className={style.formGroup}>
-                        <label>Telefon</label>
-                        <div className={style.phoneGroup}>
-                            <select
-                                name="phonePrefix"
-                                value={formData.phonePrefix}
-                                onChange={handleInputChange}
-                                className={style.phonePrefix}
-                            >
-                                <option value="+420">+420</option>
-                                {/* Můžete přidat další předvolby */}
-                            </select>
-                            <input
-                                type="tel"
-                                name="phoneNumber"
-                                value={formData.phoneNumber}
-                                onChange={handleInputChange}
-                                placeholder="123456789"
-                                maxLength={9}
-                                className={style.phoneNumber}
-                                required
-                            />
+                        <div className={style.formPayment}>
+                            <label>Způsob platby
+                                <select name="payment" value={formData.payment} onChange={handleInputChange}>
+                                    <option value="card">Kreditní karta</option>
+                                    <option value="cash">Dobírka</option>
+                                    <option value="bank">Bankovní převod</option>
+                                </select>
+                            </label>
                         </div>
-                    </div>
-
-                    <div className={style.formGroup}>
-                        <label>Způsob platby</label>
-                        <select
-                            name="payment"
-                            value={formData.payment}
-                            onChange={handleInputChange}
-                        >
-                            <option value="card">Kreditní karta</option>
-                            <option value="cash">Dobírka</option>
-                            <option value="bank">Bankovní převod</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" className={style.submitButton}>
-                        Potvrdit objednávku
-                    </button>
-                </form>
-            )}
+                        <button type="submit" className={style.submitButton}>
+                            Potvrdit objednávku
+                        </button>
+                    </form>
+                )}
+            </div>
         </main>
     );
 }

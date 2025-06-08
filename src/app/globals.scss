@@ -20,6 +20,7 @@ section {
   }
 }
 a {
+  cursor: pointer;
   color: $text-color;
   text-decoration-color: rgba($text-color, 0.2);
 }
@@ -181,4 +182,9 @@ ul {
   .open {
     height: calc(100% - $space * 4) !important;
   }
+}
+
+.mainFooter {
+  padding: calc($space * 2) 0 $space 0;
+  text-align: center;
 }

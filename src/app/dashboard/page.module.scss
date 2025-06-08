@@ -1,38 +1,26 @@
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-}
+@import "./../vars";
 
-.userInfo {
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 2rem 0;
-}
+.main {
+  padding: calc($space * 6) 0 0 0;
+  h1 {
+    font-size: 5rem;
+    @media (max-width: 470px) {
+      font-size: 3rem;
 
-.actions {
-  display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.button {
-  background-color: #0070f3;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background-color 0.2s;
-
-  &:hover {
-    background-color: #005bb5;
+    }
+    text-transform: uppercase;
   }
 }
-
-.link {
-  color: #0070f3;
-  text-decoration: none;
-  font-weight: bold;
+.actions {
+  margin-top: $space;
+  display: flex;
+  gap: $space;
+  a {
+    text-decoration: none;
+    padding: 12px;
+    font-size: 18px;
+    background-color: $special-color;
+    color: $text-color;
+    border-radius: 8px;
+  }
 }

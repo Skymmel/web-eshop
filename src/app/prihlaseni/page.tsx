@@ -5,12 +5,12 @@ import Link from "next/link";
 
 export default function LoginPage() {
     return (
-        <main className={style.container}>
-            <div className={style.loginBox}>
+        <main className={style.main}>
+            <div className={"content"}>
                 <h1>Přihlášení</h1>
-                <LoginForm />
+                <LoginForm/>
                 <div className={style.registerLink}>
-                    <p>Nemáte účet? <Link href="/registrace">Zaregistrujte se</Link></p>
+                    <p className={"login-register-p"}>Nemáte účet? <Link href="/registrace">Zaregistrujte se</Link></p>
                 </div>
             </div>
         </main>
